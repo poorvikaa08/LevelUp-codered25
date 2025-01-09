@@ -49,29 +49,29 @@ export default function RetroPDFUploader() {
           />
         ))}
       </div>
-      
+
       {/* Grid Lines */}
       <div className="absolute inset-0 bg-grid-lines opacity-20" />
 
       <div className="w-full space-y-8 text-center relative z-10">
-        <div className="space-y-4">
+        <div className="space-y-8">
           <h2 className="text-4xl font-bold animate-pulse">
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text font-mono">
-              GAME FESTIVAL
+              RETRO GAMES
             </span>
           </h2>
-          
-          <div className="text-2xl text-purple-300 font-mono animate-bounce">
-            Start
+
+          <div className="text-2xl text-purple-300 mt-100font-mono animate-bounce">
+            Upload PDF
           </div>
-          
+
           <div className="mt-12 space-y-4">
             <div {...getRootProps()} className="cursor-pointer">
               <input {...getInputProps()} />
-              <div className="relative mx-auto max-w-md">
-                <div className="h-12 bg-purple-900/30 rounded border-2 border-purple-500 overflow-hidden hover:bg-purple-900/50 transition-colors">
+              <div className="relative mx-auto max-w-xl">
+                <div className="h-12 bg-purple-900/30 rounded-full border-2 border-purple-500 overflow-hidden hover:bg-purple-900/50 transition-colors">
                   {file ? (
-                    <div 
+                    <div
                       className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
                       style={{ width: `${uploadProgress}%` }}
                     />
@@ -81,26 +81,28 @@ export default function RetroPDFUploader() {
                     </div>
                   )}
                 </div>
-                <div className="absolute -bottom-6 mt-10 left-1/2 transform -translate-x-1/2">
-                  <span className="text-purple-300 font-mono">
-                    {file ? `${uploadProgress}%` : 'UPLOAD PDF'}
-                  </span>
+                <div className="bottom-6 mt-10 mb-10 left-1/2 transform -translate-x-1/2">
+                  {/* <span className="text-purple-300 font-mono">
+                      {file ? `${uploadProgress}%` : 'UPLOAD PDF'}
+                    </span> */}
                 </div>
               </div>
             </div>
 
-            <div className="mt-16 p-6 bg-purple-900/30 border-2 border-purple-500 rounded">
+
+
+            <div className="mt-16 p-6 ">
               {file ? (
                 <div className="flex items-center justify-center gap-3 text-purple-300 font-mono text-sm">
                   <FileIcon className="w-5 h-5" />
                   <span className="truncate">{file.name}</span>
                 </div>
               ) : (
-                <p className="text-purple-300 font-mono text-sm leading-relaxed">
+                <div className="text-md text-purple-300 font-mono ">
                   DRAG AND DROP YOUR PDF HERE
                   <br />
                   OR CLICK TO SELECT
-                </p>
+                </div>
               )}
             </div>
 

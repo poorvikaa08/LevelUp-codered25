@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
 
-    <header className="bg-[#0A0E1F] px-4 py-3">
+    <header className="bg-[#1A1C2E] px-4 py-3">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="flex ">

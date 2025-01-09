@@ -6,7 +6,7 @@ import RetroPDFUploader from '@/components/upload/retro-pdf-uploader'
 
 export default function Upload() {
     return (
-        <div className="">
+        <div className="space-y-10 bt-20">
             {/* <FileUploader /> */}
             <RetroPDFUploader />
         </div>
