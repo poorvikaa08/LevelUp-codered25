@@ -15,25 +15,18 @@ export function QuestionGrid({
   onQuestionSelect
 }: QuestionGridProps) {
   const getQuestionStatus = (questionId: number) => {
-    const status = statuses[questionId]
-    if (!status) return 'not-visited'
-    if (status.answered && status.markedForReview) return 'answered-marked'
-    if (status.answered) return 'answered'
-    if (status.markedForReview) return 'marked'
-    if (status.visited) return 'not-answered'
-    return 'not-visited'
-  }
+    const status = statuses[questionId];
+    if (status && status.answered) return 'answered';
+    if (status && status.markedForReview) return 'marked';
+    return 'not-answered';
+  };
 
   const getStatusClasses = (status: string) => {
     switch (status) {
       case 'answered':
         return 'bg-green-500 text-white'
-      case 'not-answered':
-        return 'bg-red-500 text-white'
       case 'marked':
         return 'bg-indigo-600 text-white'
-      case 'answered-marked':
-        return 'bg-indigo-600 text-white relative after:content-["✓"] after:absolute after:-top-1 after:-right-1 after:w-4 after:h-4 after:bg-green-500 after:rounded-full after:text-xs after:flex after:items-center after:justify-center'
       default:
         return 'border-2 border-gray-300 hover:border-gray-400'
     }

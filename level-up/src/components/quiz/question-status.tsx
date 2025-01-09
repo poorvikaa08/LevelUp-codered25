@@ -23,11 +23,13 @@ export function QuestionStatus({ statuses }: QuestionStatusProps) {
 
       questions.forEach(question => {
         const status = statuses[question.id];
-        if (status.answered) {
+        if (status?.answered) {
           counts.answered++;
-        } else if (status.markedForReview) {
+        } else if (status?.markedForReview) {
           counts.markedForReview++;
         } else {
+          //do nothing
+          console.log('do nothing');
         }
       });
 
