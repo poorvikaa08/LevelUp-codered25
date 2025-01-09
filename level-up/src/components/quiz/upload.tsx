@@ -1,41 +1,93 @@
-'use client'
+"use client";
 
+<<<<<<< HEAD
 import { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { Card } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { FileIcon, UploadCloud, X } from 'lucide-react'
  
+=======
+import { useState, useCallback } from "react";
+import { useDropzone } from "react-dropzone";
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { FileIcon, UploadCloud, X } from "lucide-react";
+
+>>>>>>> dfd3e5790b6e2f74594d6fc739ad072a5e02c052
 export default function FileUploader() {
-  const [files, setFiles] = useState<File[]>([])
-  const [uploadProgress, setUploadProgress] = useState(0)
+  const [files, setFiles] = useState<File[]>([]);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [numQuestions, setNumQuestions] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles(acceptedFiles)
+    setFiles(acceptedFiles);
     // Simulate upload progress
-    setUploadProgress(0)
+    setUploadProgress(0);
     const interval = setInterval(() => {
       setUploadProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(interval)
-          return 100
+          clearInterval(interval);
+          return 100;
         }
-        return prev + 10
-      })
-    }, 500)
-  }, [])
+        return prev + 10;
+      });
+    }, 500);
+  }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    multiple: true
-  })
+    multiple: false,
+    accept: ".pdf", // Only accept PDFs
+  });
 
   const removeFile = (fileToRemove: File) => {
-    setFiles(files.filter(file => file !== fileToRemove))
+    setFiles(files.filter((file) => file !== fileToRemove));
     if (files.length === 1) {
-      setUploadProgress(0)
+      setUploadProgress(0);
     }
-  }
+  };
+
+  const handleSubmit = async () => {
+    if (!numQuestions || files.length === 0) {
+      setError("Please upload a file and specify the number of questions");
+      return;
+    }
+
+    setIsUploading(true);
+    setError(null);
+
+    // Prepare form data to send the file and number of questions
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("num_questions", numQuestions.toString());
+
+    try {
+      // Send POST request to create-questions endpoint
+      const response = await fetch("http://localhost:8000/create-questions/", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate questions");
+      }
+
+      const data = await response.json();
+
+      // Store the response in localStorage
+      localStorage.setItem("questions", JSON.stringify(data.questions));
+
+      // Redirect or display the next steps (e.g., show "Take test" button)
+      window.location.href = "/quiz"; // Example redirect
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   return (
     <div className="w-full max-w-md mx-auto p-4">
@@ -44,17 +96,17 @@ export default function FileUploader() {
           {...getRootProps()}
           className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
             isDragActive
-              ? 'border-primary bg-primary/5'
-              : 'border-gray-200 hover:border-primary'
+              ? "border-primary bg-primary/5"
+              : "border-gray-200 hover:border-primary"
           }`}
         >
           <input {...getInputProps()} />
           <UploadCloud className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-semibold">Upload your files</h3>
+          <h3 className="mt-2 text-sm font-semibold">Upload your PDF file</h3>
           <p className="mt-1 text-sm text-gray-500">
             {isDragActive
-              ? 'Drop your files here'
-              : 'File Uploaded'}
+              ? "Drop your file here"
+              : "Drag & drop or browse to upload"}
           </p>
         </div>
 
@@ -71,10 +123,7 @@ export default function FileUploader() {
                   <p className="text-sm text-gray-500">
                     {(file.size / 1024 / 1024).toFixed(2)} MB
                   </p>
-                  <Progress
-                    value={uploadProgress}
-                    className="h-1 mt-2"
-                  />
+                  <Progress value={uploadProgress} className="h-1 mt-2" />
                 </div>
                 <button
                   onClick={() => removeFile(file)}
@@ -91,8 +140,39 @@ export default function FileUploader() {
             ))}
           </div>
         )}
+        <div className="flex">
+          {/* Number of Questions Input */}
+          <div className="mt-6 px-20">
+            <label className="text-sm font-semibold" htmlFor="numQuestions">
+              Number of Questions
+            </label>
+            <input
+              id="numQuestions"
+              type="number"
+              value={numQuestions}
+              onChange={(e) => setNumQuestions(Number(e.target.value))}
+              className="mt-2 p-2 w-full border border-gray-300 rounded"
+              min="1"
+            />
+          </div>
+        </div>
+
+        {/* Error message */}
+        {error && <p className="mt-4 text-sm text-red-500">{error}</p>}
+
+        {/* Submit button */}
+        <div className="mt-6 px-20">
+          <button
+            onClick={handleSubmit}
+            disabled={isUploading}
+            className={`w-full py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 ${
+              isUploading ? "opacity-50" : ""
+            }`}
+          >
+            {isUploading ? "Uploading..." : "Generate Questions"}
+          </button>
+        </div>
       </Card>
     </div>
-  )
+  );
 }
-
