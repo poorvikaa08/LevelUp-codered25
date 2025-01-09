@@ -14,13 +14,12 @@ import {
 import { ChevronDown } from 'lucide-react'
 import { ThemeToggle } from '@/components/home/toggle'
 
-// bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[url('/assests/image.png')] bg-cover bg-center bg-no-repeat h-full w-full">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900">
 
       {/* Navigation */}
-      <nav className="container text-white px-4 py-8 pb-10">
+      <nav className="container mx-auto px-4 py-8 pb-10">
         <div className="flex justify-end space-x-6 text-white">
           <NavigationMenu>
             <NavigationMenuList className='gap-6'>
@@ -51,7 +50,6 @@ export default function LandingPage() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
           <ThemeToggle />
 
         </div>
@@ -65,10 +63,10 @@ export default function LandingPage() {
           <div className="space-y-8">
             <div className="w-64">
               <Image
-                src="/assests/logo.png"
+                src="/placeholder.svg?height=80&width=256"
                 alt="Embibe Logo"
-                width={300}
-                height={200}
+                width={256}
+                height={80}
                 className="w-full"
               />
             </div>

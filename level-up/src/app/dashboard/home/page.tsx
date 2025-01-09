@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export default function DashboardPage() {
   return (
-      <div className=" h-screen-full bg-[url('/assests/image.png')] container px-4 py-6">
+      <div className="container px-4 py-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -15,7 +15,7 @@ export default function DashboardPage() {
                   Welcome to LevelUp, check your priority learning.
                 </p>
               </div>
-              <div className="flex gap-4 sm:gap-6">
+              {/* <div className="flex gap-4 sm:gap-6">
                 <div className="text-center flex-1 sm:flex-none">
                   <div className="text-xl sm:text-2xl font-bold">100</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">Points</div>
@@ -28,7 +28,7 @@ export default function DashboardPage() {
                   <div className="text-xl sm:text-2xl font-bold">12</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">Certificates</div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <Card className="bg-green-50">
@@ -96,7 +96,7 @@ export default function DashboardPage() {
             <Card className="sticky top-20">
               <CardContent className="p-4">
                 <div className="mb-4 flex items-center justify-between">
-                  <h3 className="font-semibold">Calendar</h3>
+                    {/* <h3 className="font-semibold">Calendar</h3> */}
                 </div>
                 <Calendar className="rounded-md border" />
               </CardContent>
@@ -115,7 +115,7 @@ export default function DashboardPage() {
                   <div>
                     Your Longest streak: 1 Day
                     <div className="text-sm text-muted-foreground">
-                      (28 Sep 23 - 4 Oct 23)
+                      {/* (28 Sep 23 - 4 Oct 23) */}
                     </div>
                   </div>
                 </div>
@@ -128,23 +128,7 @@ export default function DashboardPage() {
 }
 
 const courses = [
-<<<<<<< HEAD
-  {
-    id: 1,
-    title: "Mastering UI/UX Design: A Guide",
-    materials: 5,
-    completion: 0,
-    deadline: "1 Day",
-  },
-  {
-    id: 2,
-    title: "Creating Engaging Learning Journeys",
-    materials: 12,
-    completion: 64,
-    deadline: "12 hrs",
-  },
-]
-=======
+
   
     {
       id: 1,
@@ -198,5 +182,4 @@ const courses = [
   ];
   
 
->>>>>>> parent of 268dcf3 (ui)
 

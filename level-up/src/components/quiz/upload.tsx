@@ -1,5 +1,6 @@
+
 'use client'
- 
+
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card } from "@/components/ui/card";
@@ -44,17 +45,17 @@ export default function FileUploader() {
           {...getRootProps()}
           className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
             isDragActive
-              ? 'border-primary bg-primary/5'
-              : 'border-gray-200 hover:border-primary'
+              ? "border-primary bg-primary/5"
+              : "border-gray-200 hover:border-primary"
           }`}
         >
           <input {...getInputProps()} />
           <UploadCloud className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-semibold">Upload your files</h3>
+          <h3 className="mt-2 text-sm font-semibold">Upload your PDF file</h3>
           <p className="mt-1 text-sm text-gray-500">
             {isDragActive
-              ? 'Drop your files here'
-              : 'File Uploaded'}
+              ? "Drop your file here"
+              : "Drag & drop or browse to upload"}
           </p>
         </div>
 
@@ -71,10 +72,7 @@ export default function FileUploader() {
                   <p className="text-sm text-gray-500">
                     {(file.size / 1024 / 1024).toFixed(2)} MB
                   </p>
-                  <Progress
-                    value={uploadProgress}
-                    className="h-1 mt-2"
-                  />
+                  <Progress value={uploadProgress} className="h-1 mt-2" />
                 </div>
                 <button
                   onClick={() => removeFile(file)}
@@ -83,11 +81,7 @@ export default function FileUploader() {
                   <X className="h-5 w-5 text-gray-500" />
                   <span className="sr-only">Remove file</span>
                 </button>
-                <button>
-                  Generate
-                </button>
               </div>
-              
             ))}
           </div>
         )}
