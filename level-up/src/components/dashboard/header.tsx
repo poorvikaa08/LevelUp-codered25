@@ -13,8 +13,10 @@ export default function Header() {
   const navLinks = [
     { href: "/dashboard/home", label: "Home", },
     { href: "/dashboard/learn", label: "Learn", },
-    { href: "/practice", label: "", },
-    { href: "/test", label: "Test" },
+    { href: "/dashboard/upload", label: "Upload", },
+    { href: "#", label: "Forum" },
+    { href: "/dashboard/customtest", label: "Custom Test " },
+
   ]
 
   const pathname = usePathname()
@@ -28,8 +30,8 @@ export default function Header() {
             <Image
               src="/assests/logo.png"
               alt="Logo"
-              width={150}
-              height={150}
+              width={200}
+              height={200}
               className="text-white"
             />
           </div>
