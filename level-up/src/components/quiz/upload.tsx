@@ -5,26 +5,7 @@ import { useDropzone } from 'react-dropzone'
 import { Card } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { FileIcon, UploadCloud, X } from 'lucide-react'
-
-<<<<<<< HEAD
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * A component that allows users to upload files by dropping them on a dropzone or
- * by selecting them from a file input. It also displays a progress bar for each
- * file being uploaded. Once all files have been uploaded, it displays a "Generate"
- * button that allows the user to generate a PDF from the uploaded files.
- *
- * @remarks
- * This component uses the `react-dropzone` library to handle the file upload.
- * It also uses the `react-hook-form` library to handle the file upload progress.
- * The `useDropzone` hook is used to get the props for the dropzone and the file
- * input. The `useCallback` hook is used to memoize the `onDrop` function so that
- * it is only recreated when the `files` state changes.
- *
- * @example
-/******  996b058c-424f-49b6-ad4b-0c00a189a9cd  *******/
-=======
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
+ 
 export default function FileUploader() {
   const [files, setFiles] = useState<File[]>([])
   const [uploadProgress, setUploadProgress] = useState(0)
@@ -102,15 +83,11 @@ export default function FileUploader() {
                   <X className="h-5 w-5 text-gray-500" />
                   <span className="sr-only">Remove file</span>
                 </button>
-<<<<<<< HEAD
                 <button>
                   Generate
                 </button>
               </div>
               
-=======
-              </div>
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
             ))}
           </div>
         )}

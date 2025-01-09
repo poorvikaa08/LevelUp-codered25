@@ -6,6 +6,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from 'next/navigation'
+import { JSX } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,11 +14,7 @@ export default function Header() {
   const navLinks = [
     { href: "/dashboard/home", label: "Home", },
     { href: "/dashboard/learn", label: "Learn", },
-<<<<<<< HEAD
-    { href: "/dashboard/upload", label: "Upload", },
-=======
     { href: "/practice", label: "", },
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
     { href: "/test", label: "Test" },
   ]
 
@@ -25,11 +22,7 @@ export default function Header() {
 
   return (
 
-<<<<<<< HEAD
     <header className="bg-[#1A1C2E] px-4 py-3">
-=======
-    <header className="bg-[#0A0E1F] px-4 py-3">
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="flex ">
@@ -67,20 +60,20 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <div className="relative hidden sm:block">
+          {/* <div className="relative hidden sm:block">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <input
               type="search"
               placeholder="Search"
               className="h-10 w-[280px] rounded-md bg-white pl-10 pr-4 text-sm outline-none"
             />
-          </div>
+          </div> */}
 
           <div className="relative">
-            <Bell className="h-6 w-6 text-gray-400" />
-            <div className="absolute right-0 top-0 flex h-5 w-7 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-[#B8860B] text-xs font-medium text-white">
+            <Bell className="h-6 w-6 text-white" />
+            {/* <div className="absolute right-0 top-0 flex h-5 w-7 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-[#ffdb81] text-xs font-medium text-black">
               196
-            </div>
+            </div> */}
           </div>
 
           {/* Mobile Menu Trigger */}

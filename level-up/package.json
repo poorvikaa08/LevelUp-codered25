@@ -9,13 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-dialog": "^1.1.4",
     "@radix-ui/react-label": "^2.1.1",
-=======
-    "@radix-ui/react-dialog": "^1.1.4",
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
     "@radix-ui/react-navigation-menu": "^1.2.3",
     "@radix-ui/react-progress": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
@@ -32,10 +28,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.5",
-<<<<<<< HEAD
     "react-hook-form": "^7.54.2",
-=======
->>>>>>> 92996d10109161cb983767d267e1481c2042edab
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"
@@ -43,8 +36,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "postcss": "^8",
