@@ -128,6 +128,7 @@ export default function DashboardPage() {
 }
 
 const courses = [
+<<<<<<< HEAD
   {
     id: 1,
     title: "Mastering UI/UX Design: A Guide",
@@ -143,4 +144,59 @@ const courses = [
     deadline: "12 hrs",
   },
 ]
+=======
+  
+    {
+      id: 1,
+      title: "Mastering UI/UX Design: A Guide",
+      materials: 5,
+      completion: 0,
+      deadline: "1 Day",
+    },
+    {
+      id: 2,
+      title: "Creating Engaging Learning Journeys",
+      materials: 12,
+      completion: 64,
+      deadline: "12 hrs",
+    },
+    {
+      id: 3,
+      title: "Introduction to Web Development",
+      materials: 8,
+      completion: 45,
+      deadline: "3 Days",
+    },
+    {
+      id: 4,
+      title: "Data Science Fundamentals",
+      materials: 15,
+      completion: 25,
+      deadline: "1 Week",
+    },
+    {
+      id: 5,
+      title: "Effective Communication Skills",
+      materials: 6,
+      completion: 90,
+      deadline: "2 Days",
+    },
+    {
+      id: 6,
+      title: "JavaScript for Beginners",
+      materials: 10,
+      completion: 30,
+      deadline: "4 Days",
+    },
+    {
+      id: 7,
+      title: "Machine Learning Essentials",
+      materials: 20,
+      completion: 10,
+      deadline: "2 Weeks",
+    },
+  ];
+  
+
+>>>>>>> parent of 268dcf3 (ui)
 
