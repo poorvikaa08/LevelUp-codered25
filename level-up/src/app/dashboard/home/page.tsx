@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export default function DashboardPage() {
   return (
-      <div className=" h-screen-full bg-[url('/assests/image.png')] container px-4 py-6">
+      <div className="container px-4 py-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

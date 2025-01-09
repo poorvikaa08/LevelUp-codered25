@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { FileIcon, UploadCloud, X } from 'lucide-react'
 
+<<<<<<< HEAD
 /*************  ✨ Codeium Command ⭐  *************/
 /**
  * A component that allows users to upload files by dropping them on a dropzone or
@@ -22,6 +23,8 @@ import { FileIcon, UploadCloud, X } from 'lucide-react'
  *
  * @example
 /******  996b058c-424f-49b6-ad4b-0c00a189a9cd  *******/
+=======
+>>>>>>> 92996d10109161cb983767d267e1481c2042edab
 export default function FileUploader() {
   const [files, setFiles] = useState<File[]>([])
   const [uploadProgress, setUploadProgress] = useState(0)
@@ -99,11 +102,15 @@ export default function FileUploader() {
                   <X className="h-5 w-5 text-gray-500" />
                   <span className="sr-only">Remove file</span>
                 </button>
+<<<<<<< HEAD
                 <button>
                   Generate
                 </button>
               </div>
               
+=======
+              </div>
+>>>>>>> 92996d10109161cb983767d267e1481c2042edab
             ))}
           </div>
         )}
