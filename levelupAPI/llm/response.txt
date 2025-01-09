@@ -1,0 +1,163 @@
+### 3 questions
+
+[
+  {
+    "question": "What is the branch of physics that studies electric charges at rest?",
+    "difficulty": "easy",
+    "options": [
+      "Thermodynamics",
+      "Electrostatics",
+      "Mechanics",
+      "Kinematics"
+    ],
+    "answer": "Electrostatics"
+  },
+  {
+    "question": "Which equation describes the force between two charges?",
+    "difficulty": "medium",
+    "options": [
+      "F = k * |q1 - q2| / r^2",
+      "F = k * |q1 * q2| / r^2",
+      "F = k * (q1 + q2) / r^2",
+      "F = k * (q1 - q2)^2 / r"
+    ],
+    "answer": "F = k * |q1 * q2| / r^2"
+  },
+  {
+    "question": "What is the electric potential, according to the text?",
+    "difficulty": "easy",
+    "options": [
+      "The work done in bringing a unit negative charge from infinity to a point in the field.",
+      "The force experienced by a charged object in an electric field.",
+      "The energy stored in a system of charges or within a capacitor.",
+      "The work done in bringing a unit positive charge from infinity to a point in the field."
+    ],
+    "answer": "The work done in bringing a unit positive charge from infinity to a point in the field."
+  }
+]
+
+
+### 4 questions
+
+[
+  {
+    "question": "What is the branch of physics that studies electric charges at rest?",
+    "difficulty": "easy",
+    "options": [
+      "Thermodynamics",
+      "Electrostatics",
+      "Quantum Mechanics",
+      "Classical Mechanics"
+    ],
+    "answer": "Electrostatics"
+  },
+  {
+    "question": "What is Coulomb's Law used to describe?",
+    "difficulty": "medium",
+    "options": [
+      "The force between two charges",
+      "The electric field around a charged object",
+      "The work done in bringing a unit positive charge from infinity",
+      "The capacitance of an electronic circuit"
+    ],
+    "answer": "The force between two charges"
+  },
+  {
+    "question": "What is the Electric Potential?",
+    "difficulty": "easy",
+    "options": [
+      "The work done in bringing a unit positive charge from infinity to a point in the field",
+      "The force experienced by a charged object",
+      "The distance between two charged objects",
+      "The capacitance of an electronic circuit"
+    ],
+    "answer": "The work done in bringing a unit positive charge from infinity to a point in the field"
+  },
+  {
+    "question": "What is the Superposition Principle used for?",
+    "difficulty": "medium",
+    "options": [
+      "Calculating electric fields",
+      "Finding the capacitance of an electronic circuit",
+      "Determining the conservation of charge",
+      "Describing the alignment of charges within a material"
+    ],
+    "answer": "Calculating electric fields"
+  }
+]
+
+### 7 questions
+
+[
+  {
+    "question": "What is electrostatics?",
+    "difficulty": "easy",
+    "options": [
+      "The study of electric currents",
+      "The branch of physics that studies electric charges at rest",
+      "The study of electromagnetic waves",
+      "The study of electrical circuits"
+    ],
+    "answer": "The branch of physics that studies electric charges at rest"
+  },
+  {
+    "question": "What is the fundamental property of matter that causes it to experience a force when placed in an electric field?",
+    "difficulty": "medium",
+    "options": [
+      "Mass",
+      "Charge",
+      "Magnetic Moment",
+      "Electric Potential"
+    ],
+    "answer": "Charge"
+  },
+  {
+    "question": "What is Coulomb's Law used to describe?",
+    "difficulty": "easy",
+    "options": [
+      "The force between two charges, Electric Field, and Electric Potential",
+      "The force between two charges only",
+      "The electric field around a charged object",
+      "The work done in bringing a unit positive charge from infinity"
+    ],
+    "answer": "The force between two charges"
+  },
+  {
+    "question": "What is the formula for Coulomb's Law?",
+    "difficulty": "medium",
+    "options": [
+      "F = k * |q1 - q2| / r^2",
+      "F = k * |q1 + q2| / r^2",
+      "F = k * |q1 * q2| / r^2",
+      "F = k * |q1 - q2| / r"
+    ],
+    "answer": "F = k * |q1 * q2| / r^2"
+  },
+  {
+    "question": "What is the electric flux through a closed surface proportional to?",
+    "difficulty": "medium",
+    "options": [
+      "The enclosed charge, The distance from the point of interest, The magnitude of the electric field",
+      "The area of the surface"
+    ],
+    "answer": "The enclosed charge"
+  },
+  {
+    "question": "What is the relationship between capacitance, charge, and voltage?",
+    "difficulty": "easy",
+    "options": [
+      "C = Q / V, C = Q + V, C = Q - V",
+      "C = Q * V"
+    ],
+    "answer": "C = Q / V"
+  },
+  {
+    "question": "What is the Superposition Principle used to calculate?",
+    "difficulty": "medium",
+    "options": [
+      "The net electric field or potential at a point due to multiple charges, The net magnetic field or force on an object",
+      "The total energy of a system"
+    ],
+    "answer": "The net electric field or potential at a point due to multiple charges"
+  }
+]
