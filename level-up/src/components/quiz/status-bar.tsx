@@ -13,7 +13,7 @@ interface StatusBarProps {
     return (
         <div className="bg-blue-50 p-4">
           <div className="container mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               <div className="text-sm">Sections</div>
               <div className="flex gap-2">
                 {sections.map((section) => (
@@ -30,7 +30,8 @@ interface StatusBarProps {
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
+            <div className="flex items-center gap-4"></div>
             <div className="flex items-center gap-4">
               <div className="bg-blue-100 px-4 py-2 rounded-lg">
                 Time Left : <span className="text-red-500 font-mono">{timeLeft}</span>
