@@ -27,8 +27,8 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
 4. **Educational Resources**  
    - Recommendations for additional resources and YouTube videos based on performance.  
 
-5. **AI-Powered Assistance**  
-   - Chatbot to answer questions and guide users based on test outcomes.  
+5. **Interactive IDE to solve Coding Problems**  
+   - A fully built Python IDE from scratch where you can solve mind-bending coding questions.  
 
 6. **Collaborative Learning**  
    - **Interactive Forum**: Students can discuss topics and share knowledge.  
