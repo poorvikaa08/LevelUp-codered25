@@ -62,8 +62,8 @@ export default function LandingPage() {
       <main className="container mx-auto px-4  pt-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
-          <div className="space-y-8">
-            <div className="w-64">
+          {/* <div className="space-y-8"> */}
+            {/* <div className="w-64">
               <Image
                 src="/assests/logo.png"
                 alt="Embibe Logo"
@@ -71,32 +71,34 @@ export default function LandingPage() {
                 height={200}
                 className="w-full"
               />
-            </div>
-            <div className="space-y-4">
-              <h2 className="text-white text-3xl md:text-4xl font-medium tracking-wide">
-                FOR SCHOOL,
-                <br />
-                COMPETITIVE EXAMS
-                <br />
-                AND BEYOND
-              </h2>
-            </div>
-          </div>
+            </div> */}
+
+          {/* </div> */}
 
           {/* Right Column */}
-          <div className="space-y-8">
-            <h1 className="text-white text-5xl md:text-7xl font-light tracking-wide leading-tight">
-              ONE LIFE
-              <br />
-              GO ACHIEVE
-            </h1>
-            <Button
-              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 rounded-full px-8 py-6 text-lg font-medium"
-            >
-              <Link href="/register">Get Started</Link>
-            </Button>
+            <div className="space-y-8">
+              <h1 className="text-white text-5xl md:text-7xl font-light tracking-wide leading-tight">
+                ONE LIFE
+                <br />
+                GO ACHIEVE
+              </h1>
+              <Button
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 rounded-full px-8 py-6 text-lg font-medium"
+              >
+                <Link href="/register">Get Started</Link>
+              </Button>
+            </div>
           </div>
-        </div>
+{/* 
+          <div className="space-y-4 mt-20 justify-center items-center">
+          <h2 className="text-white text-3xl md:text-4xl font-medium tracking-wide">
+            FOR SCHOOL,
+            <br />
+            COMPETITIVE EXAMS
+            <br />
+            AND BEYOND
+          </h2>
+        </div> */}
 
         {/* Statistics */}
         {/* <div className="text-center py-24">
