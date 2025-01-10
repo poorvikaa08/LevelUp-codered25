@@ -14,8 +14,15 @@
     "@radix-ui/react-progress": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-toggle": "^1.1.1",
+<<<<<<< HEAD
+=======
+    "@radix-ui/react-tooltip": "^1.1.6",
+    "@shadcn/ui": "^0.0.4",
+    "axios": "^1.7.9",
+>>>>>>> parent of 268dcf3 (ui)
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.469.0",
     "next": "15.1.4",
@@ -23,14 +30,22 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.5",
+<<<<<<< HEAD
+=======
+    "react-hook-form": "^7.54.2",
+<<<<<<< HEAD
+>>>>>>> parent of 268dcf3 (ui)
+=======
+    "recharts": "^2.15.0",
+>>>>>>> 3e20f55f1a7f01ea2dae41f070edb9f53a487faf
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "postcss": "^8",

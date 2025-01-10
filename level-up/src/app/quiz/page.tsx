@@ -27,7 +27,7 @@ export default function QuizPortal() {
   const [currentSection, setCurrentSection] = useState('Easy')
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-[url('/assests/image1.png')] bg-cover bg-center bg-no-repeat h-full w-full">
       <Header />
       <StatusBar
         timeLeft={timeLeft}
