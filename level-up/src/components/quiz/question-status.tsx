@@ -29,6 +29,7 @@ export function QuestionStatus({ statuses }: QuestionStatusProps) {
           counts.markedForReview++;
         } else {
           //do nothing
+         // console.log(question)
           console.log('do nothing');
         }
       });
