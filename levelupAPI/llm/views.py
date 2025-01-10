@@ -17,6 +17,34 @@ def home(request):
     return HttpResponse("hello world")
 
 
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Define execute_code at the top level
+def execute_code(code):
+    try:
+        # Redirect stdout to capture print statements
+        import io
+        import contextlib
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            exec(code, {})
+        return output.getvalue(), None
+    except Exception as e:
+        return None, str(e)
+
+# Your view function
+def python_playground(request):
+    if request.method == 'POST':
+        code = request.POST.get('code', '')
+        output, error = execute_code(code)
+        print("--------")
+        print(output)
+        return render(request, 'llm/playground.html', {'output': output, 'error': error})
+    return render(request, 'llm/playground.html')
+
+
+
 class UploadFileAPIView(APIView):
     serializer_class = FileUploadSerializer
     parser_classes = [MultiPartParser, FormParser]
@@ -91,7 +119,7 @@ class CreateQuestionsAPIView(APIView):
                         "marks": 1
                     }}
                 ]
-                Generate questions based on the following text:
+                Generate {num_questions} questions based on the following text:
                 {text}
                 Ensure the response strictly adheres to the format provided above, including the JSON structure and keys.
                 Do not add any opening or trailing statements such as 'here are __ questions...' or 'let me know if ....', I want the JSON format strictly.
@@ -108,6 +136,7 @@ class CreateQuestionsAPIView(APIView):
             response = chain.invoke(
                 {
                     "text": extracted_text,
+                    "num_questions": num_questions,
                 }
             )
 
@@ -194,7 +223,6 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from io import BytesIO
 from django.http import FileResponse
-
 
 class CreateSubjectiveQuestionsAPIView(APIView):
 
@@ -320,3 +348,49 @@ class CreateSubjectiveQuestionsAPIView(APIView):
                 {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .utils import extract_transcript
+
+class YouTubeSummaryView(APIView):
+    def post(self, request):
+        youtube_url = request.data.get('youtube_url')
+        
+        if not youtube_url:
+            return Response(
+                {"error": "Please provide a YouTube URL"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            # Extract transcript
+            transcript = extract_transcript(youtube_url)
+            
+            template =  """
+                given the following youtube transcript, summarize it within 50 words and format it well {transcript}
+                (Do not add any trailing or starting comments such as "here is a response ...." and "hopefully this was helpful...")
+            """
+            
+            # Generate summary
+            model = OllamaLLM(model="llama3")
+            prompt = ChatPromptTemplate.from_template(template)
+            chain = prompt | model
+            
+            response = chain.invoke({
+                "transcript": transcript,
+            })
+            
+            # Return the summary in a JSON object
+            return Response({"summary": response})
+            
+        except ValueError as e:
+            return Response(
+                {"error": str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            return Response(
+                {"error": "An unexpected error occurred"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

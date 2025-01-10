@@ -31,7 +31,9 @@ export default function FileUploader() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
-    accept: ".pdf",
+    accept: {
+      'application/pdf': ['.pdf']
+    }
   });
 
   const removeFile = (fileToRemove: File) => {
@@ -42,38 +44,55 @@ export default function FileUploader() {
   };
 
   const handleSubmit = async () => {
-    if (!numQuestions || files.length === 0) {
+    if (files.length === 0) {
       setError("Please upload a file");
       return;
     }
-
+  
     setIsUploading(true);
     setError(null);
-
+  
     const formData = new FormData();
     formData.append("file", files[0]);
-    formData.append("num_questions", numQuestions.toString());
-
+    
     try {
-      const response = await fetch("http://localhost:8000/create-questions/", {
+      const response = await fetch("http://localhost:8000/create-subjective-questions/", {
         method: "POST",
         body: formData,
       });
-
+  
       if (!response.ok) {
-        throw new Error("Failed to generate questions");
+        throw new Error("Failed to generate subjective questions");
       }
+  
+      // Get the filename from the Content-Disposition header, or use a default
+      const contentDisposition = response.headers.get('Content-Disposition');
+      const filenameMatch = contentDisposition?.match(/filename="?([^"]+)"?/);
+      const filename = filenameMatch?.[1] || 'subjective_questions.pdf';
 
-      const data = await response.json();
-      localStorage.setItem("questions", JSON.stringify(data.questions));
-      window.location.href = "/quiz";
-    } catch (err: any) {
-      setError(err.message);
+      // Convert the response to a blob
+      const blob = await response.blob();
+      
+      // Create a URL for the blob
+      const url = window.URL.createObjectURL(blob);
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      
+      // Append to document, click, and cleanup
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setIsUploading(false);
     }
   };
-
+  
   return (
     <div className="h-screen flex w-full bg-[#1a1b2e] p-8 m-0 overflow-hidden">
       {/* Background Stars */}
@@ -102,9 +121,11 @@ export default function FileUploader() {
 
           <div
             {...getRootProps()}
-            className={`cursor-pointer border-2 border-dashed rounded-lg p-8 text-center transition-colors ${isDragActive
-              ? "border-purple-400 bg-purple-400/10"
-              : "border-purple-200 hover:border-purple-400"}`}
+            className={`cursor-pointer border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+              isDragActive
+                ? "border-purple-400 bg-purple-400/10"
+                : "border-purple-200 hover:border-purple-400"
+            }`}
           >
             <input {...getInputProps()} />
             <UploadCloud className="mx-auto h-12 w-12 text-purple-400" />
@@ -144,9 +165,11 @@ export default function FileUploader() {
           <button
             onClick={handleSubmit}
             disabled={isUploading}
-            className={`py-2 px-4 mt-10 text-purple-900 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg hover:opacity-80 ${isUploading ? "opacity-50" : ""}`}
+            className={`py-2 px-4 mt-10 text-purple-900 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg hover:opacity-80 ${
+              isUploading ? "opacity-50" : ""
+            }`}
           >
-            {isUploading ? "Uploading..." : "Download PDF"}
+            {isUploading ? "Generating Questions..." : "Generate Questions"}
           </button>
 
           {error && <p className="mt-4 text-sm text-red-500">{error}</p>}

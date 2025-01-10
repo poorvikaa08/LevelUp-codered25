@@ -1,48 +1,9 @@
-// import { Metadata } from 'next'
-
-// export const metadata: Metadata = {
-//   title: 'Quiz Result',
-// }
-
-// export default function ResultPage({
-//   searchParams,
-// }: {
-//   searchParams: { score: string }
-// }) {
-//   const score = parseInt(searchParams.score) || 0
-//   const totalQuestions = 3 // Update this if you change the number of questions
-
-//   return (
-//     <div className="container mx-auto p-4">
-//       <h1 className="text-2xl font-bold mb-4">Quiz Result</h1>
-//       <p className="text-lg">
-//         Your score: {score} out of {totalQuestions}
-//       </p>
-//       <div className="mt-4">
-//         <h2 className="text-xl font-semibold mb-2">Analysis:</h2>
-//         {score === totalQuestions && (
-//           <p className="text-green-600">Excellent! You got all questions correct!</p>
-//         )}
-//         {score > totalQuestions / 2 && score < totalQuestions && (
-//           <p className="text-blue-600">Good job! You passed the quiz, but there's room for improvement.</p>
-//         )}
-//         {score <= totalQuestions / 2 && (
-//           <p className="text-red-600">You might want to study more and try again.</p>
-//         )}
-//       </div>
-//       <a
-//         href="/quiz"
-//         className="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-//       >
-//         Take the Quiz Again
-//       </a>
-//     </div>
-//   )
-// }
-
-'use client';
+'use client'
 
 import { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function ResultPage() {
   const [feedback, setFeedback] = useState<string | null>(null)
@@ -50,25 +11,20 @@ export default function ResultPage() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Retrieve questions and user responses from localStorage
-    const storedQuestions = localStorage.getItem('questions')
-    const storedResponses = localStorage.getItem('userResponses')
-
-    if (!storedQuestions || !storedResponses) {
-      setError('Missing required data. Please try taking the quiz again.')
-      setLoading(false)
-      return
-    }
-
-    // Prepare the payload for the API
-    const payload = {
-      questions: JSON.parse(storedQuestions),
-      user_responses: JSON.parse(storedResponses),
-    }
-
-    // Send the POST request to the feedback API
     const fetchFeedback = async () => {
       try {
+        const storedQuestions = localStorage.getItem('questions')
+        const storedResponses = localStorage.getItem('userResponses')
+
+        if (!storedQuestions || !storedResponses) {
+          throw new Error('Missing required data. Please try taking the quiz again.')
+        }
+
+        const payload = {
+          questions: JSON.parse(storedQuestions),
+          user_responses: JSON.parse(storedResponses),
+        }
+
         const response = await fetch('http://localhost:8000/generate-feedback/', {
           method: 'POST',
           headers: {
@@ -84,7 +40,7 @@ export default function ResultPage() {
         const data = await response.json()
         setFeedback(data.feedback)
       } catch (err) {
-        setError(err.message || 'An error occurred while fetching feedback.')
+        setError(err instanceof Error ? err.message : 'An error occurred while fetching feedback.')
       } finally {
         setLoading(false)
       }
@@ -94,43 +50,59 @@ export default function ResultPage() {
   }, [])
 
   if (loading) {
-    return <div className="text-center p-6">Loading feedback...</div>
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 starry-sky">
+        <Card className="w-full max-w-md bg-gray-800">
+          <CardContent className="pt-6">
+            <div className="flex justify-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-300"></div>
+            </div>
+            <p className="text-center mt-4 text-lg font-semibold text-purple-300">Loading feedback...</p>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   if (error) {
     return (
-      <div className="text-center p-6 text-red-600">
-        <p>Error: {error}</p>
-        <a
-          href="/quiz"
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 mt-4"
-        >
-          Take the Quiz Again
-        </a>
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 starry-sky">
+        <Card className="w-full max-w-md bg-gray-800">
+          <CardHeader>
+            <CardTitle className="text-center text-red-400">Error</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-center text-gray-300">{error}</p>
+          </CardContent>
+          <CardFooter className="flex justify-center">
+            <Button asChild variant="outline">
+              <a href="/quiz">Take the Quiz Again</a>
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
     )
   }
 
   return (
-    <div className="container p-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Quiz Feedback</h1>
-
-      <div className="text-center mb-6">
-        <p className="text-lg font-semibold text-gray-700">Here’s your personalized feedback:</p>
-      </div>
-
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <p className="text-lg text-gray-800 whitespace-pre-line">{feedback}</p>
-      </div>
-
-      <div className="text-center mt-8">
-        <a
-          href="/quiz"
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
-        >
-          Take the Quiz Again
-        </a>
-      </div>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-900 starry-sky p-8">
+      <Card className="w-full max-w-2xl bg-gray-800">
+        <CardHeader>
+          <CardTitle className="text-3xl font-bold text-center text-purple-300">Quiz Feedback</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-lg font-semibold text-gray-300 mb-4">Here's your personalized feedback:</p>
+          <div className="bg-gray-700 p-6 rounded-lg prose prose-purple max-w-none">
+            <ReactMarkdown>{feedback || ''}</ReactMarkdown>
+          </div>
+        </CardContent>
+        <CardFooter className="flex justify-center">
+          <Button asChild variant="outline">
+            <a href="/quiz">Take the Quiz Again</a>
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   )
 }
+

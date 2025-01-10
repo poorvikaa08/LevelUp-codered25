@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Playground</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/addon/edit/closebrackets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/addon/edit/matchbrackets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/addon/edit/indentationTags.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #2a2a2a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-card, .right-container {
+            width: 48%;
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-card {
+            margin-right: 2%;
+        }
+        h1, h3 {
+            color: #e6ffe6;
+        }
+        .output, .error {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .output {
+            background: #1d3b1c;
+            color: #e6ffe6;
+        }
+        .error {
+            background: #3e1e1e;
+            color: #f2b5b5;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-card">
+        {% if leetcode_question %}
+            <h1>{{ leetcode_question.title }}</h1>
+            <h3>Problem: {{ leetcode_question.title }}</h3>
+            <p><strong>Explanation:</strong> {{ leetcode_question.description }}</p>
+            <h4>Sample Test Cases:</h4>
+            <pre>
+            Input: {{ leetcode_question.sample_input }}
+            Output: {{ leetcode_question.sample_output }}
+            </pre>
+        {% else %}
+            <p>Unable to fetch LeetCode question at this time.</p>
+        {% endif %}
+    </div>
+    <div class="right-container">
+        <h1>Python Playground</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="code" placeholder="Write your Python code here...">{{ request.POST.code }}</textarea>
+            <br>
+            <button type="submit">Run Code</button>
+        </form>
+
+        {% if output %}
+        <div class="output">
+            <h3>Output:</h3>
+            <pre>{{ output }}</pre>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error">
+            <h3>Error:</h3>
+            <pre>{{ error }}</pre>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const editor = CodeMirror.fromTextArea(document.querySelector('textarea'), {
+            lineNumbers: true,
+            mode: "python",
+            theme: "dracula",
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            smartIndent: true,
+        });
+    </script>
+</body>
+</html>

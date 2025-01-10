@@ -14,8 +14,9 @@ export default function Header() {
   const navLinks = [
     { href: "/dashboard/home", label: "Home", },
     { href: "/dashboard/learn", label: "Learn", },
-    { href: "/dashboard/upload", label: "Upload", },
-    { href: "#", label: "Forum" },
+    { href: "/dashboard/upload/choice", label: "Upload", },
+    { href: "/dashboard/forum", label: "Forum" },
+    { href: "/dashboard/flashcard", label: "Flash Card" },
     { href: "/dashboard/customtest", label: "Custom Test " },
 
   ]
@@ -24,7 +25,7 @@ export default function Header() {
 
   return (
 
-    <header className="bg-[#0A0E1F] px-4 py-3">
+    <header className="bg-[#1A1C2E] px-4 py-3">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="flex ">
@@ -128,4 +129,3 @@ export default function Header() {
     </header>
   )
 }
-

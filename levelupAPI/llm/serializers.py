@@ -12,3 +12,4 @@ class FileUploadSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         instance.uploaded_at = timezone.now()
         return super().update(instance, validated_data)
+

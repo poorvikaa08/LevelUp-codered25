@@ -33,6 +33,15 @@ const GeneratePage = () => {
             Generate Questions
           </button>
         </a>
+
+        <a href="/dashboard/upload/yt-summary/">
+          <button
+            className={`py-3 px-6 text-purple-900 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg hover:from-purple-500 hover:to-pink-500 font-mono ${''
+              }`}
+          >
+            Youtube Video Summary
+          </button>
+        </a>
       </div>
 
       {/* <footer className="mt-10 text-purple-300 text-sm">
