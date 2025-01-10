@@ -83,7 +83,7 @@ export default function LandingPage() {
               <Button
                 className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 rounded-full px-8 py-6 text-lg font-medium"
               >
-                <Link href="/register">Get Started</Link>
+                <Link href="/sign-up">Get Started</Link>
               </Button>
             </div>
           </div>

@@ -115,7 +115,7 @@ export function Question({
             {isLastQuestion ? (
               <Button
                 className="bg-green-500 hover:bg-green-600 text-white"
-                onClick={onSubmit}
+                onClick={() => {window.location.href = '/result/'}}
               >
                 Submit Test
               </Button>
