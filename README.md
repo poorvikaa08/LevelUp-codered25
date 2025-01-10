@@ -65,10 +65,11 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
 ---
 
 ## 💡 Technologies Used  
-- **Generative AI**: For question generation and adaptive learning.  
-- **Natural Language Processing (NLP)**: Text analysis and question formation.  
-- **Authentication**: Secure user login and data protection.  
-- **Analytics**: Real-time tracking and performance insights.  
+- **Frontend:** NextJS, Tailwind CSS
+- **Machine Learning:** TensorFlow, Keras, PyTorch, Hugging Face Transformers, LangChain, Llama API
+- **Backend**: Django, NodeJS
+- **Database**: MongoDB
+- **Version Control**: Git, GitHub
 
 ---
 
