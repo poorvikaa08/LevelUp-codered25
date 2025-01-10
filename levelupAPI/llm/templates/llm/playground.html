@@ -73,19 +73,25 @@
 </head>
 <body>
     <div class="left-card">
-        {% if leetcode_question %}
-            <h1>{{ leetcode_question.title }}</h1>
-            <h3>Problem: {{ leetcode_question.title }}</h3>
-            <p><strong>Explanation:</strong> {{ leetcode_question.description }}</p>
-            <h4>Sample Test Cases:</h4>
-            <pre>
-            Input: {{ leetcode_question.sample_input }}
-            Output: {{ leetcode_question.sample_output }}
-            </pre>
-        {% else %}
-            <p>Unable to fetch LeetCode question at this time.</p>
-        {% endif %}
+        <h1>Linked List Cycle</h1>
+        <h3>Problem: Linked List Cycle</h3>
+        <p><strong>Explanation:</strong> Given the <code>head</code> of a linked list, determine if the linked list contains a cycle. A cycle exists if a node can be revisited by continuously following the <code>next</code> pointer.</p>
+        <h4>Sample Test Cases:</h4>
+        <pre>
+        Input: head = [3,2,0,-4], pos = 1
+        Output: true
+        Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+    
+        Input: head = [1,2], pos = 0
+        Output: true
+        Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+    
+        Input: head = [1], pos = -1
+        Output: false
+        Explanation: There is no cycle in the linked list.
+        </pre>
     </div>
+    
     <div class="right-container">
         <h1>Python Playground</h1>
         <form method="POST">
