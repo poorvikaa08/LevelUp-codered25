@@ -33,16 +33,16 @@ export function QuestionGrid({
   }
 
   return (
-    <div className="bg-blue-50 p-4 mt-4 rounded-lg">
-      <h3 className="font-medium mb-4">Choose a Question</h3>
-      <div className="grid grid-cols-5 gap-2">
+    <div className="bg-[#1a1b2e] p-6 rounded-lg border-2 border-purple-500 shadow-lg shadow-purple-500/20">
+      <h3 className="font-mono text-xl text-purple-300 mb-4">Choose a Question</h3>
+      <div className="grid grid-cols-5 gap-3">
         {questions.map((question) => (
           <button
             key={question.id}
             onClick={() => onQuestionSelect(question.id)}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors
+            className={`w-12 h-12 rounded-full text-white flex items-center justify-center transition-all duration-300 font-mono text-lg
               ${getStatusClasses(getQuestionStatus(question.id))}
-              ${currentQuestion === question.id ? 'ring-2 ring-offset-2 ring-indigo-500' : ''}
+              ${currentQuestion === question.id ? 'ring-2 ring-offset-2 ring-pink-500 animate-pulse' : ''}
             `}
           >
             {question.id}
@@ -52,4 +52,3 @@ export function QuestionGrid({
     </div>
   )
 }
-

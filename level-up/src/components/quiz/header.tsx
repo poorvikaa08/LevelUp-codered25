@@ -35,7 +35,7 @@ export function Header() {
   }, [router]);
 
   return (
-    <header className="bg-[#0E0D5A] text-white p-4">
+    <header className="bg-[#1a1b2e] text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-xl font-medium">LevelUp</h1>
         <div className="flex items-center gap-4">
