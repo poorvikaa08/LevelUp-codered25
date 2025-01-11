@@ -13,11 +13,13 @@ import {
 } from "@/components/ui/navigation-menu"
 import { ChevronDown } from 'lucide-react'
 import { ThemeToggle } from '@/components/home/toggle'
+import StarEffect from '@/components/home/animation'
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900">
 
+    <StarEffect/>
       {/* Navigation */}
       <nav className="container mx-auto px-4 py-8 pb-10">
         <div className="flex justify-end space-x-6 text-white">
@@ -50,7 +52,7 @@ export default function LandingPage() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
         </div>
       </nav>
@@ -58,7 +60,7 @@ export default function LandingPage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4  pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className=" items-center">
           {/* Left Column */}
           {/* <div className="space-y-8"> */}
             {/* <div className="w-64">

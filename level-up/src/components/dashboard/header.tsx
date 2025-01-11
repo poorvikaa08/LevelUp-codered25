@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { JSX } from "react";
-import { UserButton, useUser } from "@clerk/nextjs";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +15,9 @@ export default function Header() {
   const navLinks = [
     { href: "/dashboard/home", label: "Home" },
     { href: "/dashboard/learn", label: "Learn" },
-    { href: "/dashboard/upload", label: "Upload" },
-    { href: "#", label: "Forum" },
-    { href: "/dashboard/customtest", label: "Custom Test " },
+    { href: "/dashboard/upload/choice", label: "Upload" },
+    { href: "http://localhost:4000/", label: "Forum" },
+    { href: "/bookstore", label: "Redeem" },
   ];
 
   const pathname = usePathname();
@@ -63,7 +63,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Bell className="h-6 w-6 text-white" />
-          <UserButton />
+
         </div>
 
         {/* Mobile Menu Trigger */}

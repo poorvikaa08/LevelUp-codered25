@@ -15,7 +15,7 @@ messageForm.addEventListener('submit', (e) => {
 })
 
 socket.on('clients-total', (data) => {
-  clientsTotal.innerText = Total Clients: ${data}
+  clientsTotal.innerText = `Total Clients: ${data}`
 })
 
 function sendMessage() {
@@ -58,13 +58,13 @@ function scrollToBottom() {
 
 messageInput.addEventListener('focus', (e) => {
   socket.emit('feedback', {
-    feedback: ${nameInput.value} is typing a message,
+    feedback: `✍ ${nameInput.value} is typing a message`,
   })
 })
 
 messageInput.addEventListener('keypress', (e) => {
   socket.emit('feedback', {
-    feedback:  ${nameInput.value} is typing a message,
+    feedback: `✍ ${nameInput.value} is typing a message`,
   })
 })
 messageInput.addEventListener('blur', (e) => {

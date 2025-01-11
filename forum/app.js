@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const PORT = 4000
-const server = app.listen(PORT, () => console.log(`server on port ${PORT}`))
+const server = app.listen(PORT, () => console.log(`💬 server on port ${PORT}`))
 
 const io = require('socket.io')(server)
 
