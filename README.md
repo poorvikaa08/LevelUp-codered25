@@ -1,9 +1,3 @@
-<<<<<<< HEAD
----
-=======
-
->>>>>>> d6b662029f8e9f13fe3b813a7cd5d0922a8769b2
-
 # LevelUp 🚀  
 An AI-driven educational platform that transforms PDFs and textbooks into interactive multiple-choice questions (MCQs).  
 
@@ -26,7 +20,6 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
 3. **Test Management**  
    - **MCQ Test Portal**: Comprehensive and user-friendly testing platform.  
    - **Test Performance Analysis**: Detailed insights into strengths and areas for improvement.  
-<<<<<<< HEAD
    - **MCQ-to-Flashcard Conversion**: Quick revision tools.
    - **Code Snippet to MCQ Conversion**: Upload a code snippet and get relevant MCQs generated on our portal.
 
@@ -34,18 +27,9 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
    - Recommendations for additional resources and YouTube videos based on performance.
    - An educational YouTube Video and notes summarizing feature to glance over softcopy notes rapidly
 
-
-5. **Built-in IDE**  
-   - In-house custom IDE to attempt coding questions and evaluate your output based on coding PDFs.  
-=======
-   - **MCQ-to-Flashcard Conversion**: Quick revision tools.  
-
-4. **Educational Resources**  
-   - Recommendations for additional resources and YouTube videos based on performance.  
-
 5. **Interactive IDE to solve Coding Problems**  
-   - A fully built Python IDE from scratch where you can solve mind-bending coding questions.  
->>>>>>> d6b662029f8e9f13fe3b813a7cd5d0922a8769b2
+   - A fully built Python IDE from scratch where you can solve mind-bending coding questions.
+   - In-house custom IDE to attempt coding questions and evaluate your output based on coding PDFs.  
 
 6. **Collaborative Learning**  
    - **Interactive Forum**: Students can discuss topics and share knowledge.  
@@ -56,6 +40,8 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
 
 8. **Secure Authentication**  
    - Ensures user data privacy and platform security.  
+
+9. **MCQ-to-Flashcard Conversion**: Quick revision tools.  
 
 ---
 
@@ -79,18 +65,15 @@ LevelUp leverages **Generative AI** and **Natural Language Processing (NLP)** to
 ---
 
 ## 💡 Technologies Used  
-<<<<<<< HEAD
 - **Frontend:** NextJS, Tailwind CSS
 - **Machine Learning:** TensorFlow, Keras, PyTorch, Hugging Face Transformers, LangChain, Llama API
 - **Backend**: Django, NodeJS
 - **Database**: MongoDB
 - **Version Control**: Git, GitHub
-=======
 - **Generative AI**: For question generation and adaptive learning.  
 - **Natural Language Processing (NLP)**: Text analysis and question formation.  
 - **Authentication**: Secure user login and data protection.  
 - **Analytics**: Real-time tracking and performance insights.  
->>>>>>> d6b662029f8e9f13fe3b813a7cd5d0922a8769b2
 
 ---
 
@@ -121,9 +104,7 @@ We welcome contributions!
    ```  
 
 ---
-<<<<<<< HEAD
 
-This GitHub Repository is a joint effort by the contributors (Hiral K Jain, Poorvika K B, Rithwik S Bharadwaj and Vinyas Bharadwaj - Team Hextech) for the competition CodeRed '25
-=======
+This GitHub Repository is a joint effort by the contributors Hiral K Jain, Poorvika K B, Rithwik S Bharadwaj and Vinyas Bharadwaj - [Team Hextech] for the competition CodeRed '25  
+
 Project as a part of CodeRed '25 - Team Hextech
->>>>>>> d6b662029f8e9f13fe3b813a7cd5d0922a8769b2
